@@ -42,8 +42,6 @@ class CollectionListCall {
                 for(index,value) in jsonArray.enumerated() {
                     guard let handle = jsonArray[index]["handle"] as? String else {return}
                     
-                    if (handle == "aerodynamic-collection" || handle  == "durable" || handle == "small-collection") {
-                        
                         self.id.append(jsonArray[index]["id"] as! Int)
                         var name = (jsonArray[index]["title"] as! String).replacingOccurrences(of: " collection", with: "")
                         self.name.append(name)
@@ -52,7 +50,6 @@ class CollectionListCall {
                         //parse image json
                         guard let imageJson = jsonArray[index]["image"] as? [String: Any] else {return}
                         self.imageURL.append(imageJson["src"] as! String)
-                    }
                 }
                 
                 //Send the request to fetch the image for each collection
