@@ -38,6 +38,7 @@ class CollectionDetailsViewController: UITableViewController, CollectionInfoProt
         setLoadingScreen()
         apiCall.productDetailDelegate = self
         apiCall.loadDetailsInfo(collectionId: collectionId)
+        self.title = collectionTitle + " Collection"
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
